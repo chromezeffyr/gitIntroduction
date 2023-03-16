@@ -28,6 +28,7 @@
             </span></label>
           <input class="inputTema" list="temas" id="select_tema" name="select_tema">
           <datalist id="temas" name="temas">
+            <option value="git">Que es git</option>
             <option value="git init">Inicializar un nuevo repositorio vacío</option>
             <option value="git clone">Clonar un repositorio Git existente</option>
             <option value="git branch">Generar una nueva rama para encapsular cambios</option>
@@ -39,8 +40,8 @@
             <option value="git pull">Extraer y descargar contenido desde un repositorio remoto</option>
             <option value="git push">Cargar contenido del repositorio local a un repositorio remoto</option>
             <option value="git merge">Integrar varias ramas en una</option>
-            <option value="generar ssh">Generar llave SSH (windows)</option>
-            <option value="generar ssh">Generar llave SSH (linux)</option>
+            <option value="generar ssh (windows)">Generar llave SSH (windows)</option>
+            <option value="generar ssh (linux)">Generar llave SSH (linux)</option>
           </datalist>
         </div>
       </div>
@@ -51,34 +52,412 @@
   </section>
 
   <section class="login">
-    <div class="cajaCentral" name="card">
-      <div class="cabezera">
-        <h1>🤣😁😉😅</h1>
+    <div class="cajaCentral">
+      <div class="pisador">
+        <span class="emogi">📌</span>
       </div>
-      <div class="texto">
-        <h1 class="titulo">Ramas Git</h1>
+      <div id="welcome" name="welcome" class="texto">
+        <div>
+          <img src="/img/Git-Logo-White.png" alt="logoGit" class="logoGit">
+        </div>
+      </div>
+      <div id="git" name="git" class="texto" hidden>
+        <h1 class="titulo">Que es Git</h1>
         <br>
-        <p class="parrafo">En Git, las ramas son parte del proceso de desarrollo diario. Las ramas de Git son un puntero
-          eficaz para las
-          instantáneas de tus cambios. Cuando quieres añadir una nueva función o solucionar un error, independientemente
-          de su tamaño, generas una nueva rama para alojar estos cambios.
-          <br>
-          <br>
-          Una rama representa una línea independiente de desarrollo. Las ramas sirven como una abstracción de los
-          procesos de
-          cambio, preparación y confirmación. Puedes concebirlas como una forma de solicitar un nuevo directorio de
-          trabajo, un
-          nuevo entorno de ensayo o un nuevo historial de proyecto. Las nuevas confirmaciones se registran en el
-          historial de la
-          rama actual, lo que crea una bifurcación en el historial del proyecto.
-          <br>
-          <br>
-          El comando git branch te permite crear, enumerar y eliminar ramas, así como cambiar su nombre. No te permite
-          cambiar
-          entre ramas o volver a unir un historial bifurcado. Por este motivo, git branch está estrechamente integrado
-          con los
-          comandos git checkout y git merge.
+        <p class="parrafo">
+          Hoy en día, Git es, con diferencia, el sistema de control de versiones moderno más utilizado del mundo. Git es
+          un proyecto de código abierto maduro y con un mantenimiento activo que desarrolló originalmente Linus
+          Torvalds, el famoso creador del kernel del sistema operativo Linux, en 2005. Un asombroso número de proyectos
+          de software dependen de Git para el control de versiones, incluidos proyectos comerciales y de código abierto.
+          Los desarrolladores que han trabajado con Git cuentan con una buena representación en la base de talentos
+          disponibles para el desarrollo de software, y este sistema funciona a la perfección en una amplia variedad de
+          sistemas operativos e IDE (entornos de desarrollo integrados).
         </p>
+        <br>
+        <p class="parrafo">
+          Git, que presenta una arquitectura distribuida, es un ejemplo de DVCS (sistema de control de versiones
+          distribuido, por sus siglas en inglés). En lugar de tener un único espacio para todo el historial de versiones
+          del software, como sucede de manera habitual en los sistemas de control de versiones antaño populares, como
+          CVS o Subversion (también conocido como SVN), en Git, la copia de trabajo del código de cada desarrollador es
+          también un repositorio que puede albergar el historial completo de todos los cambios.
+        </p>
+        <br>
+        <p class="parrafo">
+          Además de contar con una arquitectura distribuida, Git se ha diseñado teniendo en cuenta el rendimiento, la
+          seguridad y la flexibilidad.
+        </p>
+      </div>
+      <div id="cardgitInit" class="texto" hidden>
+        <h1 class="titulo">git init</h1>
+        <p><small>Inicializar repo</small></p>
+        <br>
+        <p class="parrafo">
+          El comando git init crea un nuevo repositorio de Git. Puede utilizarse para convertir un proyecto existente y
+          sin versión en un repositorio de Git, o para inicializar un nuevo repositorio vacío. La mayoría de los demás
+          comandos de Git no se encuentran disponibles fuera de un repositorio inicializado, por lo que este suele ser
+          el primer comando que se ejecuta en un proyecto nuevo.
+        </p>
+        <br>
+        <p class="parrafo">
+          Al ejecutar git init, se crea un subdirectorio de .git en el directorio de trabajo actual, que contiene todos
+          los metadatos de Git necesarios para el nuevo repositorio. Estos metadatos incluyen subdirectorios de objetos,
+          referencias y archivos de plantilla. También se genera un archivo HEAD que apunta a la confirmación
+          actualmente extraída.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git init
+          </code>
+        </div>
+
+      </div>
+      <div id="cardgitClone" name="git clone" class="texto" hidden>
+        <h1 class="titulo">git clone</h1>
+        <p><small>Clonar repositorio remoto</small></p>
+        <br>
+        <p class="parrafo">
+          git clone se utiliza principalmente para apuntar a un repositorio existente y clonar o copiar dicho
+          repositorio en un nuevo directorio, en otra ubicación. <br><br>El repositorio original se puede localizar en
+          el
+          sistema de archivos local o en los protocolos admitidos a los que se puede acceder por máquina remota. El
+          comando git clone copia un repositorio de Git existente. Es una especie de SVN checkout, salvo por el hecho de
+          que la "copia de trabajo" es un repositorio de Git completo: tiene su propio historial, administra sus propios
+          archivos y es un entorno completamente aislado del repositorio original.
+        </p>
+        <br>
+        <p class="parrafo">
+          Por comodidad, la clonación crea automáticamente una conexión remota llamada "origin" que apunta al
+          repositorio original. Gracias a esto, es muy fácil interactuar con un repositorio central. <br><br>Esta
+          conexión
+          automática se establece creando referencias de Git a los encabezados de la rama remota en refs/remotes/origin
+          e inicializando las variables de configuración remote.origin.url y remote.origin.fetch.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git clone ssh://john@example.com/path/to/my-project.git 
+            <br>$cd my-project 
+          </code>
+        </div>
+      </div>
+      <div id="cardgitBranch" name="git branch" class="texto" hidden>
+        <h1 class="titulo">git branch</h1>
+        <p><small>listar, crear, borrar ramas</small></p>
+        <br>
+        <p class="parrafo">
+          Git Branch se define como un comando del sistema de Git que permite crear, listar o eliminar ramas del
+          sistema, según sea necesario. Además, esta herramienta contribuye a facilitar la organización de múltiples
+          versiones de una aplicación.
+        </p>
+        <br>
+        <p class="parrafo">
+          La opción de Git Branch también puede entenderse como una división o bifurcación del estado del código, que se
+          encarga de desarrollar un nuevo mecanismo para su evolución.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git branch {nueva rama}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitCheckout" name="git checkout" class="texto" hidden>
+        <h1 class="titulo">git checkout</h1>
+        <p><small>cambiar entre ramas</small></p>
+        <br>
+        <p class="parrafo">
+          El comando git checkout te permite desplazarte entre las ramas creadas por git branch. Al extraer una rama, se
+          actualizan los archivos en el directorio de trabajo para reflejar la versión almacenada en esa rama y se
+          indica a Git que registre todas las confirmaciones nuevas en dicha rama. <br><br>Puedes contemplar todo esto
+          como una
+          forma de seleccionar la línea de desarrollo en la que trabajas.
+        </p>
+        <br>
+        <p class="parrafo">
+          Si damos por sentado que el repositorio en el que trabajas contiene ramas preexistentes, puedes cambiar de una
+          de estas ramas a otra con git checkout. Para saber qué ramas están disponibles y cuál es el nombre de la rama
+          actual, ejecuta git branch.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git checkout {nombre de la rama}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitTag" name="git tag" class="texto" hidden>
+        <h1 class="titulo">git tag</h1>
+        <p><small>agregar versiones a repo</small></p>
+        <br>
+        <p class="parrafo">
+          Git tiene la posibilidad de marcar estados importantes en la vida de un repositorio, algo que se suele usar
+          habitualmente para el manejo de las releases de un proyecto. A través del comando "git tag" podemos crear
+          etiquetas, en una operación que se conoce comúnmente con el nombre de "tagging". Es una operativa que tiene
+          muchas variantes y utilidades.
+        </p>
+        <br>
+        <p class="parrafo">
+          Además de mantener informados a los usuarios del código de los proyectos y otros desarrolladores de las
+          versiones de una aplicación, el etiquetado es una herramienta fundamental para que otros sistemas sepan cuándo
+          un proyecto ha cambiado y se permitan desencadenar procesos a ejecutar cada vez que esto ocurre. De hecho es
+          importante porque algunos gestores de paquetes te obligan a usarlo para poder publicar packages en ellos.
+          <br><br>Así
+          pues, vamos a relatar las bases para trabajar con el sistema de tagging de modo que puedas usarlo en tu día a
+          día en el trabajo con Git.
+        </p>
+        <br>
+        <p class="parrafo">
+          Además, en el caso de GitHub también puedes crear tags en los repositorios directamente desde la interfaz web
+          del servicio. Desde la página principal del repositorio, en el enlace que pone "releases", puedes acceder a la
+          información sobre las versiones etiquetadas en tu proyecto, así como etiquetar nuevas versiones.
+        </p>
+        <div class="codigo">
+          <code>
+            $git tag v0.0.1 -m "Primera versión" {id de commit}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitShow" name="git show" class="texto" hidden>
+        <h1 class="titulo">git show</h1>
+        <p><small>ver info de acciones en repo</small></p>
+        <br>
+        <p class="parrafo">
+          git-show es una herramienta de línea de comandos que se utiliza para ver detalles ampliados de objetos de Git,
+          como blobs, árboles, etiquetas y confirmaciones, y que presenta un comportamiento específico para cada tipo de
+          objeto.
+        </p>
+        <br>
+        <p class="parrafo">
+          Las etiquetas muestran el mensaje de la etiqueta y otros objetos incluidos en ella; los árboles muestran los
+          nombres y el contenido de los objetos incluidos en ellos; los blobs muestran el contenido directo de un blob;
+          y las confirmaciones muestran un mensaje de registro de la confirmación y el resultado de la diferencia de los
+          cambios en esta.
+        </p>
+        <br>
+        <p class="parrafo">
+          Se accede a todos los objetos de Git mediante referencias. De forma predeterminada, git-show actúa contra la
+          referencia HEAD. La referencia HEAD siempre dirige al último commit de la rama actual. Por lo tanto, puedes
+          usar git-show para mostrar los mensajes de registro y el resultado de la diferencia de la última confirmación.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git show
+          </code>
+        </div>
+      </div>
+      <div id="cardgitLog" name="git log" class="texto" hidden>
+        <h1 class="titulo">git log</h1>
+        <p><small>explorar historial del repo</small></p>
+        <br>
+        <p class="parrafo">
+          El comando git log muestra las instantáneas confirmadas. Te permite ver el historial del proyecto, filtrarlo y
+          buscar cambios concretos. Mientras que git status te permite examinar el directorio de trabajo y el entorno de
+          ensayo, git log solo muestra el historial confirmado.
+        </p>
+        <br>
+        <p class="parrafo">
+          La opción "log" se puede personalizar de diversas maneras, desde filtrar las confirmaciones hasta verlas en un
+          formato completamente definido por el usuario.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git log {opcion}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitFetch" name="git fetch" class="texto" hidden>
+        <h1 class="titulo">git fetch</h1>
+        <p><small>bajar cambios de una rama</small></p>
+        <br>
+        <p class="parrafo">
+          El comando git fetch descarga commits, archivos y referencias de un repositorio remoto a tu repositorio local.
+          Esta acción la llevas a cabo cuando quieres ver en qué han estado trabajando los demás. Es similar al comando
+          svn update porque te permite ver cómo ha progresado el historial central, pero no te obliga a fusionar los
+          cambios en tu repositorio. Git aísla el contenido recuperado del contenido local existente sin tener ningún
+          tipo de repercusión sobre el desarrollo local de tu trabajo. El contenido recuperado debe extraerse
+          específicamente con el comando git checkout. Esto permite que la recuperación constituya una forma segura de
+          revisar commits antes de integrarlos en tu repositorio local.
+        </p>
+        <br>
+        <p class="parrafo">
+          Para descargar contenido de un repositorio remoto, los comandos git pull y git fetch están disponibles para
+          realizar esta tarea. Puedes considerar git fetch como la versión segura de los dos comandos. Este comando
+          descarga el contenido remoto, pero no actualiza el estado de trabajo del repositorio local, por lo que tu
+          trabajo actual no se verá afectado. git pull constituye una alternativa más agresiva, ya que descarga el
+          contenido remoto a la rama local activa e inmediatamente ejecuta git merge para crear un commit fusionado con
+          el nuevo contenido remoto. Si tienes cambios pendientes en curso, esta acción provocará conflictos e iniciará
+          el flujo de resolución de conflictos de fusión.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git fetch origin {rama}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitPull" name="git pull" class="texto" hidden>
+        <h1 class="titulo">git pull</h1>
+        <p><small>explorar historial del repo</small></p>
+        <br>
+        <p class="parrafo">
+          El comando se utiliza para capturar y descargar contenido de un repositorio remoto y actualizar inmediatamente
+          el repositorio local para que coincida con ese contenido. La fusión de cambios remotos ascendentes en su
+          repositorio local es una tarea común en los flujos de trabajo de colaboración basados en Git. El comando es en
+          realidad una combinación de otros dos comandos, seguidos de . En la primera etapa de operación se ejecutará un
+          ámbito a la rama local a la que se apunta. Una vez descargado el contenido, entrará en un flujo de trabajo de
+          combinación. Se creará una nueva confirmación de combinación y se actualizará para que apunte a la nueva
+          confirmación.
+        </p>
+        <br>
+        <p class="parrafo">
+          Primero se ejecuta el comando que descarga contenido del repositorio remoto especificado. Luego se ejecuta un
+          para fusionar las referencias de contenido remoto y se dirige a una nueva confirmación de combinación local.
+          Para demostrar mejor el proceso de extracción y fusión, consideremos el siguiente ejemplo. Supongamos que
+          tenemos un repositorio con una rama principal y un origen remoto.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git pull {rama}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitPush" name="git push" class="texto" hidden>
+        <h1 class="titulo">git push</h1>
+        <p><small>enviar cambios a repo</small></p>
+        <br>
+        <p class="parrafo">
+          El comando git push se usa para cargar contenido del repositorio local a un repositorio remoto. El envío es la
+          forma de transferir confirmaciones desde tu repositorio local a un repositorio remoto. Es el equivalente a git
+          fetch, pero mientras que al recuperar se importan las confirmaciones a ramas locales, al enviar estas se
+          exportan a ramas remotas. Las ramas remotas se configuran mediante el comando git remote. Los envíos pueden
+          sobrescribir los cambios, por lo que se debe tener cuidado a la hora de realizarlos. Estos problemas se
+          describen a continuación.
+        </p>
+        <br>
+        <p class="parrafo">
+          Envía la rama especificada a una , junto con todos los commits y objetos internos necesarios. De este modo se
+          crea una rama local en el repositorio de destino. Para evitar que se sobrescriban los commits, Git no te
+          permitirá enviarlos cuando el resultado en el repositorio de destino sea una fusión sin avance rápido.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git push {rama}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitMerge" name="git merge" class="texto" hidden>
+        <h1 class="titulo">git merge</h1>
+        <p><small>mezclar, integrar ramas</small></p>
+        <br>
+        <p class="parrafo">
+          La fusión es la forma que tiene Git de volver a unir un historial bifurcado. El comando git merge permite
+          tomar las líneas independientes de desarrollo creadas por git branch e integrarlas en una sola rama.
+
+          Ten en cuenta que todos los comandos presentados a continuación se fusionan en la rama actual. La rama actual
+          se actualizará para reflejar la fusión, pero la rama de destino no se verá afectada en absoluto. Una vez más,
+          esto significa que git merge se suele utilizar junto con git checkout para seleccionar la rama actual y git
+          branch -d para eliminar la rama de destino obsoleta.
+        </p>
+        <br>
+        <p class="parrafo">
+          git merge combinará varias secuencias de confirmaciones en un historial unificado. En los casos de uso más
+          frecuentes, git merge se utiliza para combinar dos ramas. Los ejemplos siguientes del presente documento se
+          centrarán en este patrón de fusión de ramas. En estos casos, git merge toma dos punteros de confirmación,
+          normalmente los extremos de la rama, y encuentra una confirmación base común entre ellos. Una vez que Git
+          encuentra una confirmación base en común, crea una "confirmación de fusión" nueva que combina los cambios de
+          cada secuencia de confirmación de fusión puesta en cola.
+        </p>
+        <br>
+        <p class="parrafo">
+          Si las dos ramas que tratas de fusionar han cambiado la misma parte del mismo archivo, Git no podrá averiguar
+          qué versión utilizar. Cuando esto ocurre, Git se detiene justo antes de la confirmación de fusión para que
+          puedas resolver los conflictos manualmente.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git merge {rama}
+          </code>
+        </div>
+      </div>
+      <div id="cardgitSSHW" name="generar ssh (windows)" class="texto" hidden>
+        <h1 class="titulo">generar llave ssh</h1>
+        <p><small>llave ssh</small></p>
+        <br>
+        <p class="parrafo">
+          Una clave SSH es una credencial de acceso para el protocolo de red SSH (Secure Shell). Este protocolo de red
+          segura con autenticación y cifrado se utiliza para la comunicación remota entre máquinas en una red abierta no
+          segura. SSH se utiliza para la transferencia remota de archivos, la gestión de redes y el acceso remoto al
+          sistema operativo. El acrónimo SSH también se usa para describir un conjunto de herramientas utilizadas para
+          interactuar con el protocolo SSH.
+        </p>
+        <br>
+        <p class="parrafo">
+          SSH usa un par de claves para iniciar un protocolo de enlace seguro entre partes remotas. El par de claves
+          contiene una clave pública y una clave privada. Los términos "pública" y "privada" pueden resultar confusos,
+          ya que ambos se refieren a claves. Es más fácil imaginar que la clave pública es una "cerradura" y la clave
+          privada, la "llave" que la abre. Entregas la "cerradura" pública a las partes remotas para que cifren o
+          "cierren" los datos. Después, estos datos se abren con la llave "privada" que guardas en un lugar seguro.
+        </p>
+        <br>
+        <p class="parrafo">
+          Los entornos Windows modernos ofrecen un subsistema de Windows para Linux. Este subsistema ofrece un shell de
+          Linux completo dentro de un entorno Windows tradicional. Si hay un subsistema de Linux disponible, se puede
+          generar una llave ssh al igual que en linux.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+          </code>
+        </div>
+      </div>
+      <div id="cardgitSSHL" name="generar ssh (linux)" class="texto" hidden>
+        <h1 class="titulo">generar llave ssh</h1>
+        <br>
+        <p class="parrafo">
+          Los sistemas operativos OS X y Linux tienen aplicaciones de terminal modernas y muy completas que se lanzan
+          con el conjunto de herramientas SSH instalado. El proceso para crear una clave SSH es el mismo en ambos
+          sistemas operativos.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+          </code>
+        </div>
+        <br>
+        <br>
+        <p class="parrafo">
+          ssh-agent es otro programa que forma parte del conjunto de herramientas SSH y su misión es guardar las claves
+          privadas. Es como si fuera un llavero. Además de guardar las claves privadas, también interviene en las
+          solicitudes para firmar solicitudes SSH con las claves privadas, de modo que estas nunca se transfieran de
+          manera no segura.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $ssh-add -K /Users/you/.ssh/id_rsa
+          </code>
+        </div>
       </div>
     </div>
   </section>

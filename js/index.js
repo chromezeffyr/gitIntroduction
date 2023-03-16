@@ -1,8 +1,72 @@
-const input = document.querySelector('input');
-const log = document.getElementById('valores'); // ids de cards a mostrar
+const cardIdInit = document.getElementById("cardgitInit");
+const cardIdClone = document.getElementById("cardgitClone");
+const cardIdBranch = document.getElementById("cardgitBranch");
+const cardIdCheckout = document.getElementById("cardgitCheckout");
+const cardIdTag = document.getElementById("cardgitTag");
+const cardIdShow = document.getElementById("cardgitShow");
+const cardIdLog = document.getElementById("cardgitLog");
+const cardIdFetch = document.getElementById("cardgitFetch");
+const cardIdPull = document.getElementById("cardgitPull");
+const cardIdPush = document.getElementById("cardgitPush");
+const cardIdMerge = document.getElementById("cardgitMerge");
+const cardIdSSHW = document.getElementById("cardgitSSHW");
+const cardIdSSHL = document.getElementById("cardgitSSHL");
+const git = document.getElementById("git");
+const welcome = document.getElementById("welcome");
 
-input.addEventListener('input', updateValue);
+const listCards = [
+  cardIdInit,
+  cardIdClone,
+  cardIdBranch,
+  cardIdCheckout,
+  cardIdTag,
+  cardIdShow,
+  cardIdLog,
+  cardIdFetch,
+  cardIdPull,
+  cardIdPush,
+  cardIdMerge,
+  cardIdSSHW,
+  cardIdSSHL,
+  git
+];
 
-function updateValue(e) {
-    Element.setAttribute("card", "active");
+const selectTema = document.getElementById("select_tema");
+
+const initialOption = "git";
+muestraCard(initialOption);
+
+selectTema.addEventListener("change", () => {
+  let selectedOption = selectTema.value;
+
+  const gitOptions = {
+    "git":"git",
+    "git init": "cardgitInit",
+    "git clone": "cardgitClone",
+    "git branch": "cardgitBranch",
+    "git checkout": "cardgitCheckout",
+    "git tag": "cardgitTag",
+    "git show": "cardgitShow",
+    "git log": "cardgitLog",
+    "git fetch": "cardgitFetch",
+    "git pull": "cardgitPull",
+    "git push": "cardgitPush",
+    "git merge": "cardgitMerge",
+    "generar ssh (windows)": "cardgitSSHW",
+    "generar ssh (linux)": "cardgitSSHL",
+  };
+
+  selectedOption = gitOptions[selectedOption] || "welcome";
+  muestraCard(selectedOption);
+});
+
+function muestraCard(select) {
+  listCards.forEach((element) => {
+    if (element.id === select) {
+      element.removeAttribute("hidden");
+    } else {
+      element.setAttribute("hidden", true);
+    }
+  });
 }
+

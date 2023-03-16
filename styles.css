@@ -1,5 +1,6 @@
 *{
     font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -7,34 +8,46 @@
 
 
 .login{
+    background-color: #7B8FA1;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background-color: #567189;
 }
 
 .cajaCentral {
+    background-color: #567189;
     border: 1.5px solid #FAD6A5;
+    border-radius: 20px;
     color: #FAD6A5;
     text-align: center;
     width: 60rem;
     padding: 10px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     box-shadow:
+    0 0 6px #FAD6A5,
     0 0 9px #FAD6A5,
-    0 0 10px #FAD6A5,
-    0 0 20px #FAD6A5,
-    0 0 40px #CFB997,
+    0 0 12px #FAD6A5,
+    0 0 30px #CFB997,
+    0 0 36px #CFB997,
     0 0 60px #CFB997,
     0 0 90px #CFB997,
-    0 0 120px #CFB997,
-    0 0 130px #CFB997;
+    0 0 120px #CFB997;
 }
 
 .titulo{
     font-size: 3rem;
 }
 
+.pisador{
+    text-align: end;
+}
+
+
+.emogi{
+    font-size: 30px;
+}
 
 .parrafo{
     text-align: left;
@@ -47,9 +60,9 @@
 
 .header{
     height: 90px;
-    background-color: #25316D;
+    background-color: #205375;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -69,6 +82,12 @@
 }
 
 
+.logoGit{
+    width: 100px;
+    height: auto;
+}
+
+
 .inputTema{
     padding-top: 12px;
     height: 30px;
@@ -78,7 +97,6 @@
 }
 
 
-
 .img{
     width: 60px;
     border-radius: 9px;
@@ -86,15 +104,9 @@
 }
 
 
-
-
-
-
-
-
 .footer{
     height: 100px;
-    background-color: #25316D;
+    background-color: #205375;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,10 +115,13 @@
 
 .text_footer{
     color: whitesmoke;
+}
+
+
+.codigo{
+    background-color: #2E3840;
     font-size: 1.5rem;
+    color: whitesmoke;
+    padding-bottom: 10px;
 }
 
-
-.active{
-    
-}
