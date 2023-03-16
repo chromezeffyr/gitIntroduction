@@ -28,7 +28,8 @@ const listCards = [
   cardIdMerge,
   cardIdSSHW,
   cardIdSSHL,
-  git
+  git,
+  welcome
 ];
 
 const selectTema = document.getElementById("select_tema");
@@ -54,6 +55,7 @@ selectTema.addEventListener("change", () => {
     "git merge": "cardgitMerge",
     "generar ssh (windows)": "cardgitSSHW",
     "generar ssh (linux)": "cardgitSSHL",
+    "welcome":"welcome",
   };
 
   selectedOption = gitOptions[selectedOption] || "welcome";
