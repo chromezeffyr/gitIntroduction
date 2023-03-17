@@ -9,8 +9,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
@@ -21,7 +19,7 @@
       </div>
       <div>
         <div>
-          <label for="temas">🔎</label>
+          <label for="temas"><span class="buscar">🔎</span></label>
           <input class="inputTema" list="temas" id="select_tema" name="select_tema">
           <datalist id="temas" name="temas">
             <option value="git">Que es git</option>
@@ -36,6 +34,7 @@
             <option value="git pull">Extraer y descargar contenido desde un repositorio remoto</option>
             <option value="git push">Cargar contenido del repositorio local a un repositorio remoto</option>
             <option value="git merge">Integrar varias ramas en una</option>
+            <option value="git reset">Devolver o resetear ramas</option>
             <option value="generar ssh (windows)">Generar llave SSH (windows)</option>
             <option value="generar ssh (linux)">Generar llave SSH (linux)</option>
           </datalist>
@@ -50,7 +49,13 @@
   <section class="login">
     <div class="cajaCentral">
       <div class="pisador">
-        <span class="emogi">📌</span>
+        <div>
+          <span class="emogi">🌎</span>
+          <a href="https://git-scm.com/">https://git-scm.com/</a>
+        </div>
+        <div>
+          <span class="emogi">📌</span>
+        </div>
       </div>
       <div id="welcome" name="welcome" class="texto">
         <div>
@@ -212,6 +217,8 @@
           del servicio. Desde la página principal del repositorio, en el enlace que pone "releases", puedes acceder a la
           información sobre las versiones etiquetadas en tu proyecto, así como etiquetar nuevas versiones.
         </p>
+        <br>
+        <br>
         <div class="codigo">
           <code>
             $git tag v0.0.1 -m "Primera versión" {id de commit}
@@ -391,6 +398,36 @@
           </code>
         </div>
       </div>
+      <div id="cardgitReset" name="git reset" class="texto" hidden>
+        <h1 class="titulo">git reset</h1>
+        <p><small>resetear ramas</small></p>
+        <br>
+        <p class="parrafo">
+          El comando git reset es una herramienta compleja y versátil para deshacer cambios. Se invoca principalmente de
+          tres formas distintas, que se corresponden con los argumentos de líneas de comandos --soft, --mixed y --hard.
+          Cada uno de los tres argumentos se corresponde con los tres mecanismos de gestión de estados internos de Git:
+          el árbol de confirmaciones (HEAD), el índice del entorno de ensayo y el directorio de trabajo.
+        </p>
+        <br>
+        <p class="parrafo">
+          A nivel superficial, git reset tiene un comportamiento parecido a git checkout. Mientras que git checkout solo
+          opera en el puntero de referencia HEAD, git reset moverá el puntero de referencia HEAD y el puntero de
+          referencia de la rama actual.
+        </p>
+        <br>
+        <br>
+        <div class="codigo">
+          <code>
+            $git reset --SOFT {rama}
+          </code>
+        </div>
+        <br>
+        <div class="codigo">
+          <code>
+            $git reset --HARD {rama}
+          </code>
+        </div>
+      </div>
       <div id="cardgitSSHW" name="generar ssh (windows)" class="texto" hidden>
         <h1 class="titulo">generar llave ssh</h1>
         <p><small>llave ssh</small></p>
@@ -463,6 +500,8 @@
       <div class="text_footer">
         <p><strong> Notas personales </strong></p>
         <p><strong> Git basico para novatos (puede cambiar)</strong></p>
+        <p><strong> Para mas info: </strong> <a
+          href="https://www.youtube.com/watch?v=udughzlN5M4&ab_channel=Platzi">Introducci&oacute;n a GIT</a></p>
       </div>
     </div>
   </section>

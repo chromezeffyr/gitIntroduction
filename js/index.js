@@ -9,6 +9,7 @@ const cardIdFetch = document.getElementById("cardgitFetch");
 const cardIdPull = document.getElementById("cardgitPull");
 const cardIdPush = document.getElementById("cardgitPush");
 const cardIdMerge = document.getElementById("cardgitMerge");
+const cardIdReset = document.getElementById("cardgitReset");
 const cardIdSSHW = document.getElementById("cardgitSSHW");
 const cardIdSSHL = document.getElementById("cardgitSSHL");
 const git = document.getElementById("git");
@@ -26,6 +27,7 @@ const listCards = [
   cardIdPull,
   cardIdPush,
   cardIdMerge,
+  cardIdReset,
   cardIdSSHW,
   cardIdSSHL,
   git,
@@ -53,6 +55,7 @@ selectTema.addEventListener("change", () => {
     "git pull": "cardgitPull",
     "git push": "cardgitPush",
     "git merge": "cardgitMerge",
+    "git reset": "cardgitReset",
     "generar ssh (windows)": "cardgitSSHW",
     "generar ssh (linux)": "cardgitSSHL",
     "welcome":"welcome",
