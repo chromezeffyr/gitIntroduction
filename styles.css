@@ -119,13 +119,19 @@ a {
 /* Por debajo de 700px */
 @media screen and (max-width: 700px) {
   .cajaCentral {
-    font-size: 12px;
+    font-size: 0.9rem;
     margin-top: 90px;
     margin-bottom: 90px;
   }
   .inputTema {
     width: 150px;
-    font-size: 12px;
+    font-size: 0.9rem;
+  }
+  .parrafo {
+    font-size: 0.9rem;
+  }
+  .codigo{
+    font-size: 0.9rem;
   }
 }
 /* Por debajo de 400px */
@@ -137,6 +143,12 @@ a {
   }
   .inputTema {
     width: 90px;
-    font-size: 12px;
+    font-size: 0.9rem;
+  }
+  .parrafo {
+    font-size: 0.9rem;
+  }
+  .codigo{
+    font-size: 0.9rem;
   }
 }
