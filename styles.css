@@ -1,27 +1,28 @@
 * {
   font-family: "Roboto", sans-serif;
-  font-size: 1rem;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-a{
-    text-decoration: none;
-    color: aqua;
+a {
+  text-decoration: none;
+  color: aqua;
 }
+
 
 .login {
   background-color: #7b8fa1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .cajaCentral {
   background-color: #567189;
   border-radius: 20px;
+  font-size: 1rem;
   color: #fad6a5;
   text-align: center;
   width: 60rem;
@@ -41,7 +42,6 @@ a{
   margin-inline: 30px;
   text-decoration: none;
 }
-
 
 .emogi,
 .buscar {
@@ -85,8 +85,8 @@ a{
 .inputTema {
   padding-top: 12px;
   height: 30px;
-  width: 150px;
-  font-size: 1.0rem;
+  width: 300px;
+  font-size: 1rem;
   padding: 10px;
 }
 
@@ -116,8 +116,27 @@ a{
   padding-bottom: 10px;
 }
 
-@media screen and (max-widht: 768px) {
+/* Por debajo de 700px */
+@media screen and (max-width: 700px) {
   .cajaCentral {
-    width: 30rem;
+    font-size: 12px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+  }
+  .inputTema {
+    width: 150px;
+    font-size: 12px;
+  }
+}
+/* Por debajo de 400px */
+@media screen and (max-width: 400px) {
+  .cajaCentral {
+    font-size: 9px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .inputTema {
+    width: 90px;
+    font-size: 12px;
   }
 }
