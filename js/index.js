@@ -65,6 +65,14 @@ selectTema.addEventListener("change", () => {
   muestraCard(selectedOption);
 });
 
+
+function limpiarInput() {
+  document.getElementById("select_tema").value = "";
+  let seleccionDefault = "git";
+  muestraCard(seleccionDefault);
+}
+
+
 function muestraCard(select) {
   listCards.forEach((element) => {
     if (element.id === select) {

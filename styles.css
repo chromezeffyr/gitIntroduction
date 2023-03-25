@@ -44,9 +44,16 @@ a {
 }
 
 .emogi,
-.buscar {
+.buscar, 
+.papelera {
   font-size: 2rem;
 }
+
+
+.papelera{
+  cursor: pointer;
+}
+
 
 .parrafo {
   text-align: left;
