@@ -39,6 +39,8 @@ const selectTema = document.getElementById("select_tema");
 const initialOption = "git";
 muestraCard(initialOption);
 
+
+
 selectTema.addEventListener("change", () => {
   let selectedOption = selectTema.value;
 
@@ -82,4 +84,3 @@ function muestraCard(select) {
     }
   });
 }
-

@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Git Introducci&oacute;n</title>
+  </style>
   <link rel="stylesheet" href="styles.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -21,13 +22,12 @@
       <div>
         <div>
           <label for="temas"><span class="buscar">🔎</span></label>
-          <input class="inputTema" list="temas" id="select_tema" name="select_tema">
-          <span class="papelera" onclick="limpiarInput()" id="limpiar">🗑️</span>
-          <datalist id="temas" name="temas">
+          <!--<input class="inputTema" list="temas" id="select_tema" name="select_tema">-->
+          <select id="select_tema" name="select_tema">
             <option value="git">Que es git</option>
             <option value="git init">Inicializar un nuevo repositorio vacío</option>
             <option value="git clone">Clonar un repositorio Git existente</option>
-            <option value="git branch">Generar una nueva rama para encapsular cambios</option>
+            <option value="git branch">Generar una nueva rama</option>
             <option value="git checkout">Cambiar entre ramas</option>
             <option value="git tag">Agregar versiones al proyecto</option>
             <option value="git show">Ver detalles sobre commits</option>
@@ -39,11 +39,9 @@
             <option value="git reset">Devolver o resetear ramas</option>
             <option value="generar ssh (windows)">Generar llave SSH (windows)</option>
             <option value="generar ssh (linux)">Generar llave SSH (linux)</option>
-          </datalist>
+          </select>
+          <span class="papelera" onclick="limpiarInput()" id="limpiar">🗑️</span>
         </div>
-      </div>
-      <div>
-        <img src="img/fotoCamilo.jpg" alt="fotoCamilo" class="img">
       </div>
     </div>
   </section>
