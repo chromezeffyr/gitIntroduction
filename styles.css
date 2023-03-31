@@ -145,7 +145,7 @@ select option {
   background-color: #f2f2f2;
 }
 
-#temas {
+#select_tema {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -156,9 +156,8 @@ select option {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#temas:focus {
+#select_tema:focus {
   outline: none;
-  border-color: #5c5cff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
