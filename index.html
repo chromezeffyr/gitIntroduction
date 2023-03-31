@@ -43,7 +43,7 @@
         </div>
       </div>
       <div>
-        <img src="img/fotoCamilo.png" alt="fotoCamilo" class="img">
+        <img src="img/fotoCamilo.jpg" alt="fotoCamilo" class="img">
       </div>
     </div>
   </section>
@@ -64,34 +64,41 @@
           <img src="img/Git-Logo-White.png" alt="logoGit" class="logoGit">
         </div>
       </div>
-      <div id="git" name="git" class="texto" hidden>
-        <h1 class="titulo">Que es Git</h1>
+      <section id="git" name="git" class="texto" hidden>
+        <header class="titulo">¿Que es Git?</header>
         <br>
         <p class="parrafo">
-          Hoy en día, Git es, con diferencia, el sistema de control de versiones moderno más utilizado del mundo. Git es
-          un proyecto de código abierto maduro y con un mantenimiento activo que desarrolló originalmente Linus
-          Torvalds, el famoso creador del kernel del sistema operativo Linux, en 2005. Un asombroso número de proyectos
-          de software dependen de Git para el control de versiones, incluidos proyectos comerciales y de código abierto.
-          Los desarrolladores que han trabajado con Git cuentan con una buena representación en la base de talentos
-          disponibles para el desarrollo de software, y este sistema funciona a la perfección en una amplia variedad de
-          sistemas operativos e IDE (entornos de desarrollo integrados).
+          Git es un sistema de control de versiones que te permite realizar un seguimiento de los cambios que realizas
+          en tu proyecto de software a lo largo del tiempo. Es especialmente útil si trabajas en equipo o si necesitas
+          hacer cambios en tu proyecto sin temor a perder trabajo previo. Git se utiliza en una amplia variedad de
+          proyectos de software, tanto comerciales como de código abierto.
         </p>
         <br>
         <p class="parrafo">
-          Git, que presenta una arquitectura distribuida, es un ejemplo de DVCS (sistema de control de versiones
-          distribuido, por sus siglas en inglés). En lugar de tener un único espacio para todo el historial de versiones
-          del software, como sucede de manera habitual en los sistemas de control de versiones antaño populares, como
-          CVS o Subversion (también conocido como SVN), en Git, la copia de trabajo del código de cada desarrollador es
-          también un repositorio que puede albergar el historial completo de todos los cambios.
+          Cuando trabajas con Git, tienes una copia de tu proyecto en tu computadora. Cada vez que realizas cambios en
+          tu proyecto, Git realiza un seguimiento de estos cambios y los almacena en lo que se llama un "repositorio".
+          Este repositorio contiene todo el historial de cambios que has realizado en tu proyecto, y te permite volver a
+          cualquier versión anterior de tu proyecto si es necesario. Además, como Git es un sistema distribuido, puedes
+          compartir tu trabajo con otros desarrolladores y colaborar en el mismo proyecto.
         </p>
         <br>
         <p class="parrafo">
-          Además de contar con una arquitectura distribuida, Git se ha diseñado teniendo en cuenta el rendimiento, la
-          seguridad y la flexibilidad.
+          Aquí hay un ejemplo para que lo entiendas mejor: imagina que estás trabajando en un proyecto web y has
+          realizado algunos cambios importantes en tu código. Sin Git, tendrías que copiar y pegar el código en un
+          archivo de texto antes de realizar los cambios, en caso de que algo saliera mal y necesitaras volver a la
+          versión anterior. Con Git, no tienes que preocuparte por esto. Simplemente realizas los cambios en tu proyecto
+          y Git los registra automáticamente, lo que te permite volver a cualquier versión anterior si algo sale mal.
         </p>
-      </div>
-      <div id="cardgitInit" class="texto" hidden>
-        <h1 class="titulo">git init</h1>
+        <br>
+        <p class="parrafo">
+          En resumen, Git es una herramienta valiosa para cualquier desarrollador de software. Te permite realizar un
+          seguimiento de los cambios en tu proyecto a lo largo del tiempo, colaborar con otros desarrolladores y volver
+          a versiones anteriores si es necesario. A medida que aprendas más sobre Git, te darás cuenta de que es una
+          herramienta muy poderosa que puede ahorrarte mucho tiempo y esfuerzo en el desarrollo de software.
+        </p>
+      </section>
+      <section id="cardgitInit" class="texto" hidden>
+        <header class="titulo">git init</header>
         <p><small>Inicializar repo</small></p>
         <br>
         <p class="parrafo">
@@ -114,10 +121,9 @@
             $git init
           </code>
         </div>
-
-      </div>
-      <div id="cardgitClone" name="git clone" class="texto" hidden>
-        <h1 class="titulo">git clone</h1>
+      </section>
+      <section id="cardgitClone" name="git clone" class="texto" hidden>
+        <header class="titulo">git clone</header>
         <p><small>Clonar repositorio remoto</small></p>
         <br>
         <p class="parrafo">
@@ -138,6 +144,12 @@
           e inicializando las variables de configuración remote.origin.url y remote.origin.fetch.
         </p>
         <br>
+        <p class="parrafo">
+          Es importante destacar que, al clonar un repositorio, se crea una copia exacta del mismo en una nueva
+          ubicación. Por lo tanto, cualquier cambio que se realice en el repositorio clonado no afectará al repositorio
+          original y viceversa.
+        </p>
+        <br>
         <br>
         <div class="codigo">
           <code>
@@ -145,9 +157,9 @@
             <br>$cd my-project 
           </code>
         </div>
-      </div>
-      <div id="cardgitBranch" name="git branch" class="texto" hidden>
-        <h1 class="titulo">git branch</h1>
+      </section>
+      <section id="cardgitBranch" name="git branch" class="texto" hidden>
+        <header class="titulo">git branch</header>
         <p><small>listar, crear, borrar ramas</small></p>
         <br>
         <p class="parrafo">
@@ -167,9 +179,9 @@
             $git branch {nueva rama}
           </code>
         </div>
-      </div>
-      <div id="cardgitCheckout" name="git checkout" class="texto" hidden>
-        <h1 class="titulo">git checkout</h1>
+      </section>
+      <section id="cardgitCheckout" name="git checkout" class="texto" hidden>
+        <header class="titulo">git checkout</header>
         <p><small>cambiar entre ramas</small></p>
         <br>
         <p class="parrafo">
@@ -186,15 +198,22 @@
           actual, ejecuta git branch.
         </p>
         <br>
+        <p class="parrafo">
+          En resumen, 'git checkout' es un comando fundamental en Git que permite desplazarse entre las ramas creadas por
+          'git branch'. Cambiar de una rama a otra con git checkout es una forma de seleccionar la línea de desarrollo en
+          la que se trabaja y actualizar los archivos en el directorio de trabajo para reflejar la versión almacenada en
+          esa rama.
+        </p>
+        <br>
         <br>
         <div class="codigo">
           <code>
             $git checkout {nombre de la rama}
           </code>
         </div>
-      </div>
-      <div id="cardgitTag" name="git tag" class="texto" hidden>
-        <h1 class="titulo">git tag</h1>
+      </section>
+      <section id="cardgitTag" name="git tag" class="texto" hidden>
+        <header class="titulo">git tag</header>
         <p><small>agregar versiones a repo</small></p>
         <br>
         <p class="parrafo">
@@ -226,9 +245,9 @@
             $git tag v0.0.1 -m "Primera versión" {id de commit}
           </code>
         </div>
-      </div>
-      <div id="cardgitShow" name="git show" class="texto" hidden>
-        <h1 class="titulo">git show</h1>
+      </section>
+      <section id="cardgitShow" name="git show" class="texto" hidden>
+        <header class="titulo">git show</header>
         <p><small>ver info de acciones en repo</small></p>
         <br>
         <p class="parrafo">
@@ -256,9 +275,9 @@
             $git show
           </code>
         </div>
-      </div>
-      <div id="cardgitLog" name="git log" class="texto" hidden>
-        <h1 class="titulo">git log</h1>
+      </section>
+      <section id="cardgitLog" name="git log" class="texto" hidden>
+        <header class="titulo">git log</header>
         <p><small>explorar historial del repo</small></p>
         <br>
         <p class="parrafo">
@@ -278,9 +297,9 @@
             $git log {opcion}
           </code>
         </div>
-      </div>
-      <div id="cardgitFetch" name="git fetch" class="texto" hidden>
-        <h1 class="titulo">git fetch</h1>
+      </section>
+      <section id="cardgitFetch" name="git fetch" class="texto" hidden>
+        <header class="titulo">git fetch</header>
         <p><small>bajar cambios de una rama</small></p>
         <br>
         <p class="parrafo">
@@ -309,9 +328,9 @@
             $git fetch origin {rama}
           </code>
         </div>
-      </div>
-      <div id="cardgitPull" name="git pull" class="texto" hidden>
-        <h1 class="titulo">git pull</h1>
+      </section>
+      <section id="cardgitPull" name="git pull" class="texto" hidden>
+        <header class="titulo">git pull</header>
         <p><small>explorar historial del repo</small></p>
         <br>
         <p class="parrafo">
@@ -337,9 +356,9 @@
             $git pull {rama}
           </code>
         </div>
-      </div>
-      <div id="cardgitPush" name="git push" class="texto" hidden>
-        <h1 class="titulo">git push</h1>
+      </section>
+      <section id="cardgitPush" name="git push" class="texto" hidden>
+        <header class="titulo">git push</header>
         <p><small>enviar cambios a repo</small></p>
         <br>
         <p class="parrafo">
@@ -363,9 +382,9 @@
             $git push {rama}
           </code>
         </div>
-      </div>
-      <div id="cardgitMerge" name="git merge" class="texto" hidden>
-        <h1 class="titulo">git merge</h1>
+      </section>
+      <section id="cardgitMerge" name="git merge" class="texto" hidden>
+        <header class="titulo">git merge</header>
         <p><small>mezclar, integrar ramas</small></p>
         <br>
         <p class="parrafo">
@@ -399,9 +418,9 @@
             $git merge {rama}
           </code>
         </div>
-      </div>
-      <div id="cardgitReset" name="git reset" class="texto" hidden>
-        <h1 class="titulo">git reset</h1>
+      </section>
+      <section id="cardgitReset" name="git reset" class="texto" hidden>
+        <header class="titulo">git reset</header>
         <p><small>resetear ramas</small></p>
         <br>
         <p class="parrafo">
@@ -429,9 +448,9 @@
             $git reset --HARD {rama}
           </code>
         </div>
-      </div>
-      <div id="cardgitSSHW" name="generar ssh (windows)" class="texto" hidden>
-        <h1 class="titulo">generar llave ssh</h1>
+      </section>
+      <section id="cardgitSSHW" name="generar ssh (windows)" class="texto" hidden>
+        <header class="titulo">generar llave ssh</header>
         <p><small>llave ssh</small></p>
         <br>
         <p class="parrafo">
@@ -462,9 +481,9 @@
             $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
           </code>
         </div>
-      </div>
-      <div id="cardgitSSHL" name="generar ssh (linux)" class="texto" hidden>
-        <h1 class="titulo">generar llave ssh</h1>
+      </section>
+      <section id="cardgitSSHL" name="generar ssh (linux)" class="texto" hidden>
+        <header class="titulo">generar llave ssh</header>
         <br>
         <p class="parrafo">
           Los sistemas operativos OS X y Linux tienen aplicaciones de terminal modernas y muy completas que se lanzan
@@ -493,20 +512,20 @@
             $ssh-add -K /Users/you/.ssh/id_rsa
           </code>
         </div>
-      </div>
+      </section>
     </div>
   </section>
 
-  <section>
+  <footer>
     <div class="footer">
       <div class="text_footer">
-        <p><strong> Notas</strong></p>
-        <p><strong> Git b&aacute;sico para novatos (puede cambiar)</strong></p>
+        <h3>Notas</h3>
+        <h3>Git b&aacute;sico para novatos (puede cambiar)</h3>
         <p><strong> Para mas info: </strong> <a
-          href="https://www.youtube.com/watch?v=udughzlN5M4&ab_channel=Platzi">Introducci&oacute;n a GIT</a></p>
+            href="https://www.youtube.com/watch?v=udughzlN5M4&ab_channel=Platzi">Introducci&oacute;n a GIT</a></p>
       </div>
     </div>
-  </section>
+  </footer>
   <script src="js/index.js"></script>
 </body>
 
