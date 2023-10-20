@@ -1,5 +1,5 @@
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -11,14 +11,15 @@ a {
 }
 
 .login {
-  background-image: url("img/mosaico.jpg");
+  background-image: url("../img/mosaico.jpg");
   background-repeat: repeat;
   background-size: cover;
   animation: moveBackground 90s linear infinite;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 78vh;
+  height: 100vh;
+  padding: 30px;
 }
 
 @keyframes moveBackground {
@@ -36,9 +37,6 @@ a {
   font-size: 1rem;
   color: #fad6a5;
   text-align: center;
-  width: 60rem;
-  max-height: 900px;
-  overflow-y: scroll;
   padding: 10px;
   -webkit-box-shadow: -3px 10px 43px 4px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: -3px 10px 43px 4px rgba(0, 0, 0, 0.59);
@@ -60,16 +58,17 @@ a {
 .emogi,
 .buscar,
 .papelera {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
-.papelera {
+.papelera,
+.botonCopy {
   cursor: pointer;
 }
 
 .parrafo {
   text-align: left;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .texto {
@@ -77,11 +76,8 @@ a {
 }
 
 .header {
-  height: 90px;
+  height: 100px;
   background-color: #205375;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   padding: 5px;
 }
 
@@ -102,7 +98,6 @@ a {
 }
 
 .footer {
-  height: 100px;
   background-color: #205375;
   display: flex;
   justify-content: center;
@@ -149,9 +144,8 @@ select option {
 @media screen and (max-width: 700px), screen and (max-width: 400px) {
   .cajaCentral {
     font-size: 0.9rem;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    max-height: 36rem;
+    margin-bottom: 3rem;
+    max-height: 39rem;
     overflow-y: scroll;
   }
   select {
@@ -167,5 +161,11 @@ select option {
   .buscar,
   .papelera {
     font-size: 1.5rem;
+  }
+  .login {
+    padding: 9px;
+  }
+  .header{
+    height: 150px;
   }
 }
