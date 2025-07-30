@@ -136,3 +136,43 @@ function copyCode(elementId, button) {
       console.error('Elemento no encontrado:', elementId);
   }
 }
+
+const OPENAI_API_KEY = '';
+
+async function askOpenAI(question) {
+  const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + OPENAI_API_KEY
+    },
+    body: JSON.stringify({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        { role: 'system', content: 'Eres un asistente que responde preguntas sobre Git en español.' },
+        { role: 'user', content: question }
+      ],
+      temperature: 0.2
+    })
+  });
+
+  const data = await response.json();
+  if (data.choices && data.choices.length > 0) {
+    return data.choices[0].message.content.trim();
+  }
+  throw new Error('No se pudo obtener respuesta');
+}
+
+document.getElementById('ai_ask').addEventListener('click', async () => {
+  const question = document.getElementById('ai_question').value;
+  if (!question) return;
+  const ansElem = document.getElementById('ai_answer');
+  ansElem.textContent = 'Consultando...';
+  try {
+    const answer = await askOpenAI(question);
+    ansElem.textContent = answer;
+  } catch (err) {
+    ansElem.textContent = 'Error al consultar IA';
+    console.error(err);
+  }
+});
