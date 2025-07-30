@@ -140,6 +140,14 @@ select option {
   background-color: #f2f2f2;
 }
 
+.resultado {
+  background-color: #2e3840;
+  color: whitesmoke;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
 /* Por debajo de 700px y 400px*/
 @media screen and (max-width: 700px), screen and (max-width: 400px) {
   .cajaCentral {

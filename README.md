@@ -22,6 +22,11 @@ Tecnologías y herramientas utilizadas en el proyecto, por ejemplo:
 - JavaScript
 - Git y GitHub
 
+## Consulta Git con IA
+
+La página incluye una sección que utiliza la API de OpenAI para responder preguntas sobre Git.
+Para habilitarla debes indicar tu clave de API en el archivo `resources/js/index.js` asignándola a `OPENAI_API_KEY`.
+
 ## Cómo contribuir
 
 Si deseas contribuir al proyecto, sigue estos pasos:
