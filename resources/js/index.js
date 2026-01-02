@@ -176,3 +176,5 @@ document.getElementById('ai_ask').addEventListener('click', async () => {
     console.error(err);
   }
 });
+
+// commit echo desde el editor de codigo incorporado en github
