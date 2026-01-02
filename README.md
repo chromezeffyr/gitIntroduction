@@ -28,7 +28,13 @@ La página incluye una sección que utiliza la API de OpenAI para responder preg
 Para habilitarla debes proporcionar tu clave de API de alguna de estas formas:
 
 - **Entorno Node**: define la variable de entorno `OPENAI_API_KEY` antes de ejecutar el proyecto.
-- **En el navegador**: inyecta la clave en el HTML mediante una etiqueta `<meta name="openai-api-key" content="TU_CLAVE">` o un `input` oculto con `name="openai-api-key"` (o `id="openai-api-key"`).
+- **En el navegador**: inyecta la clave en el HTML mediante una etiqueta `<meta name="openai-api-key" content="TU_CLAVE">` o un `input` oculto con `name="openai-api-key"` (o `id="openai-api-key"`). Usa siempre HTTPS o `localhost` si cargas la clave desde el DOM para evitar que se filtre en tránsito.
+
+**Recomendaciones de seguridad**
+
+- No publiques la clave de OpenAI en un sitio público: si necesitas exponerla en el navegador hazlo solo en HTTPS o `localhost` y evalúa usar un backend proxy que firme las solicitudes.
+- Evita guardar la clave en localStorage u otros medios persistentes en el cliente.
+- Comprueba que la variable `OPENAI_API_KEY` no quede registrada en logs o herramientas de build.
 
 ## Cómo contribuir
 

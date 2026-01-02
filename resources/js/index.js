@@ -140,30 +140,52 @@ function copyCode(elementId, button) {
 function getOpenAIApiKey() {
   // Para entornos Node (por ejemplo durante la construcción o pruebas)
   if (typeof process !== "undefined" && process?.env?.OPENAI_API_KEY) {
-    return process.env.OPENAI_API_KEY;
+    return { key: String(process.env.OPENAI_API_KEY).trim(), source: "env" };
   }
 
-  // Para la web: se puede inyectar mediante una etiqueta <meta>
-  const metaToken = document.querySelector('meta[name="openai-api-key"]');
-  if (metaToken?.content) {
-    return metaToken.content;
+  if (typeof document !== "undefined") {
+    // Para la web: se puede inyectar mediante una etiqueta <meta>
+    const metaToken = document.querySelector('meta[name="openai-api-key"]');
+    if (metaToken?.content) {
+      return { key: metaToken.content.trim(), source: "dom" };
+    }
+
+    // O mediante un input oculto (útil si se carga dinámicamente)
+    const hiddenInput = document.querySelector('input[type="hidden"][name="openai-api-key"], input[type="hidden"]#openai-api-key');
+    if (hiddenInput?.value) {
+      return { key: hiddenInput.value.trim(), source: "dom" };
+    }
   }
 
-  // O mediante un input oculto (útil si se carga dinámicamente)
-  const hiddenInput = document.querySelector('input[type="hidden"][name="openai-api-key"], input[type="hidden"]#openai-api-key');
-  if (hiddenInput?.value) {
-    return hiddenInput.value;
-  }
-
-  return "";
+  return { key: "", source: "none" };
 }
 
-const OPENAI_API_KEY = getOpenAIApiKey();
+function assertOpenAISafety(apiKeySource) {
+  // Cuando se expone la clave desde el DOM, impedir su uso en contextos no seguros
+  if (apiKeySource === "dom" && typeof window !== "undefined") {
+    const isLocalhost = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+    const isSecure = window.isSecureContext === true;
+
+    if (!isSecure && !isLocalhost) {
+      throw new Error(
+        "La clave de OpenAI solo debe inyectarse en contextos seguros (HTTPS o localhost). Considera usar un backend proxy."
+      );
+    }
+
+    console.warn(
+      "Advertencia: la clave de OpenAI está disponible en el cliente. Evita exponerla en producción; usa un servicio backend para firmar las solicitudes."
+    );
+  }
+}
+
+const { key: OPENAI_API_KEY, source: OPENAI_API_KEY_SOURCE } = getOpenAIApiKey();
 
 async function askOpenAI(question) {
   if (!OPENAI_API_KEY) {
     throw new Error('Falta la clave de API de OpenAI.');
   }
+
+  assertOpenAISafety(OPENAI_API_KEY_SOURCE);
 
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
