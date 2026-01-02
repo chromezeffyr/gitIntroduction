@@ -25,7 +25,10 @@ Tecnologías y herramientas utilizadas en el proyecto, por ejemplo:
 ## Consulta Git con IA
 
 La página incluye una sección que utiliza la API de OpenAI para responder preguntas sobre Git.
-Para habilitarla debes indicar tu clave de API en el archivo `resources/js/index.js` asignándola a `OPENAI_API_KEY`.
+Para habilitarla debes proporcionar tu clave de API de alguna de estas formas:
+
+- **Entorno Node**: define la variable de entorno `OPENAI_API_KEY` antes de ejecutar el proyecto.
+- **En el navegador**: inyecta la clave en el HTML mediante una etiqueta `<meta name="openai-api-key" content="TU_CLAVE">` o un `input` oculto con `name="openai-api-key"` (o `id="openai-api-key"`).
 
 ## Cómo contribuir
 

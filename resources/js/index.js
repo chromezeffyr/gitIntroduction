@@ -137,9 +137,34 @@ function copyCode(elementId, button) {
   }
 }
 
-const OPENAI_API_KEY = '';
+function getOpenAIApiKey() {
+  // Para entornos Node (por ejemplo durante la construcción o pruebas)
+  if (typeof process !== "undefined" && process?.env?.OPENAI_API_KEY) {
+    return process.env.OPENAI_API_KEY;
+  }
+
+  // Para la web: se puede inyectar mediante una etiqueta <meta>
+  const metaToken = document.querySelector('meta[name="openai-api-key"]');
+  if (metaToken?.content) {
+    return metaToken.content;
+  }
+
+  // O mediante un input oculto (útil si se carga dinámicamente)
+  const hiddenInput = document.querySelector('input[type="hidden"][name="openai-api-key"], input[type="hidden"]#openai-api-key');
+  if (hiddenInput?.value) {
+    return hiddenInput.value;
+  }
+
+  return "";
+}
+
+const OPENAI_API_KEY = getOpenAIApiKey();
 
 async function askOpenAI(question) {
+  if (!OPENAI_API_KEY) {
+    throw new Error('Falta la clave de API de OpenAI.');
+  }
+
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
