@@ -54,7 +54,7 @@
           <option value="generar ssh (windows)">generar ssh (windows)</option>
           <option value="generar ssh (linux)">generar ssh (linux)</option>
         </select>
-        <button class="icon-button papelera" id="limpiar" type="button" aria-label="Restablecer tema">🗑️</button>
+        <button class="icon-button papelera" onclick="limpiarInput()" id="limpiar" type="button" aria-label="Restablecer tema">🗑️</button>
       </div>
     </div>
   </nav>
@@ -96,26 +96,6 @@
         <h3>Colaboración</h3>
         <p>Trabaja con remotos usando fetch, pull, push y configuración segura.</p>
       </article>
-    </section>
-
-
-    <section class="command-explorer container" aria-labelledby="command_explorer_title">
-      <div class="command-explorer__header">
-        <div>
-          <span class="eyebrow">Búsqueda inteligente</span>
-          <h2 id="command_explorer_title">Encuentra comandos por nombre, categoría o intención.</h2>
-        </div>
-        <p>
-          Escribe lo que quieres hacer en Git o filtra por categoría para descubrir el comando correcto más rápido.
-        </p>
-      </div>
-      <div class="command-search" role="search">
-        <label for="command_search" class="visually-hidden">Buscar comandos de Git</label>
-        <span aria-hidden="true">🔎</span>
-        <input id="command_search" type="search" placeholder="Ej: crear rama, subir cambios, deshacer, remoto..." autocomplete="off">
-      </div>
-      <div id="category_filters" class="category-filters" aria-label="Filtrar comandos por categoría"></div>
-      <div id="command_results" class="command-results" aria-live="polite"></div>
     </section>
 
     <div class="cajaCentral container">
@@ -707,7 +687,7 @@
             $git pull [rama]
           </div>
           <div class="botonCopy">
-            <button class="copy-button" type="button" data-copy-target="git_pull" aria-label="Copiar comando git pull">📃</button>
+            <a onclick="copyCode('git_pull', this)">📃</a>
           </div>
         </div>
       </section>
