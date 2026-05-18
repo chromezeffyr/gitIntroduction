@@ -1,82 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Git Introducci&oacute;n</title>
+  <meta name="description" content="Guía interactiva en español para aprender comandos esenciales de Git con ejemplos prácticos.">
   <link rel="stylesheet" href="resources/bootstrap-5.3.2-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="resources/css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
-  <link rel="icon" href="resources/img/favicon.ico" type="ico" sizes="16x16">
+  <link rel="icon" href="resources/img/favicon.ico" type="image/x-icon" sizes="16x16">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg sticky-top header">
-    <div class="container-fluid">
-      <div>
-        <h1 class="logo">Notas<strong class="logo2">GIT</strong></h1>
-      </div>
-      <div>
-        <div class="row g-3 align-items-center">
-          <div class="col-auto">
-            <label for="temas"><span class="buscar col-form-label">🔎</span></label>
-          </div>
-          <div class="col-auto">
-            <!--<input class="inputTema" list="temas" id="select_tema" name="select_tema">-->
-            <select id="select_tema" name="select_tema" class="form-control form-select">
-              <option value="git">Que es git</option>
-              <option value="git init">git init</option>
-              <option value="git clone">git clone</option>
-              <option value="git branch">git branch</option>
-              <option value="git checkout">git checkout</option>
-              <option value="git tag">git tag</option>
-              <option value="git show">git show</option>
-              <option value="git log">git log</option>
-              <option value="git status">git status</option>
-              <option value="git add">git add</option>
-              <option value="git commit">git commit</option>
-              <option value="git diff">git diff</option>
-              <option value="git revert">git revert</option>
-              <option value="git stash">git stash</option>
-              <option value="git rebase">git rebase</option>
-              <option value="git config">git config</option>
-              <option value="git remote add">git remote add</option>
-              <option value="git remote remove">git remote remove</option>
-              <option value="git fetch">git fetch</option>
-              <option value="git pull">git pull</option>
-              <option value="git push">git push</option>
-              <option value="git merge">git merge</option>
-              <option value="git reset">git reset</option>
-              <option value="generar ssh (windows)">generar ssh (windows)</option>
-              <option value="generar ssh (linux)">generar ssh (linux)</option>
-            </select>
-          </div>
-          <div class="col-auto">
-            <span class="papelera" onclick="limpiarInput()" id="limpiar">🗑️</span>
-          </div>
-        </div>
+    <div class="container-fluid header__inner">
+      <a class="brand" href="#git" aria-label="Ir al inicio de Notas Git">
+        <span class="brand__mark">Git</span>
+        <span>
+          <strong class="logo">Notas<strong class="logo2">GIT</strong></strong>
+          <small class="brand__tagline">Guía práctica para aprender versionado</small>
+        </span>
+      </a>
+      <div class="command-picker" aria-label="Selector de temas de Git">
+        <label for="select_tema" class="command-picker__label"><span class="buscar">🔎</span> Explorar comando</label>
+        <!--<input class="inputTema" list="temas" id="select_tema" name="select_tema">-->
+        <select id="select_tema" name="select_tema" class="form-control form-select">
+          <option value="git">Qué es Git</option>
+          <option value="git init">git init</option>
+          <option value="git clone">git clone</option>
+          <option value="git branch">git branch</option>
+          <option value="git checkout">git checkout</option>
+          <option value="git tag">git tag</option>
+          <option value="git show">git show</option>
+          <option value="git log">git log</option>
+          <option value="git status">git status</option>
+          <option value="git add">git add</option>
+          <option value="git commit">git commit</option>
+          <option value="git diff">git diff</option>
+          <option value="git revert">git revert</option>
+          <option value="git stash">git stash</option>
+          <option value="git rebase">git rebase</option>
+          <option value="git config">git config</option>
+          <option value="git remote add">git remote add</option>
+          <option value="git remote remove">git remote remove</option>
+          <option value="git fetch">git fetch</option>
+          <option value="git pull">git pull</option>
+          <option value="git push">git push</option>
+          <option value="git merge">git merge</option>
+          <option value="git reset">git reset</option>
+          <option value="generar ssh (windows)">generar ssh (windows)</option>
+          <option value="generar ssh (linux)">generar ssh (linux)</option>
+        </select>
+        <button class="icon-button papelera" id="limpiar" type="button" aria-label="Restablecer tema">🗑️</button>
       </div>
     </div>
   </nav>
 
-  <div class="login container-fluid">
-    <div class="cajaCentral">
+  <main class="login">
+    <section class="hero-panel container">
+      <div class="hero-panel__content">
+        <span class="eyebrow">Control de versiones sin fricción</span>
+        <h2>Aprende Git con comandos claros, ejemplos copiables y una experiencia más visual.</h2>
+        <p>
+          Consulta los comandos esenciales, entiende cuándo usarlos y accede rápido a referencias para trabajar con ramas,
+          commits, remotos y llaves SSH.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-light btn-lg" href="#git">Empezar con Git</a>
+          <a class="btn btn-outline-light btn-lg" href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Documentación oficial</a>
+        </div>
+      </div>
+      <div class="hero-panel__card" aria-label="Resumen de contenidos disponibles">
+        <span class="hero-panel__icon">⌘</span>
+        <strong>24+ temas</strong>
+        <p>Flujo básico, ramas, historial, remotos, deshacer cambios y configuración SSH.</p>
+      </div>
+    </section>
+
+    <section class="quick-cards container" aria-label="Categorías destacadas">
+      <article class="quick-card">
+        <span>🌱</span>
+        <h3>Primeros pasos</h3>
+        <p>Comprende qué es Git, inicia repositorios y clona proyectos.</p>
+      </article>
+      <article class="quick-card">
+        <span>🌿</span>
+        <h3>Ramas e historial</h3>
+        <p>Domina branch, checkout, log, diff, merge y rebase.</p>
+      </article>
+      <article class="quick-card">
+        <span>🚀</span>
+        <h3>Colaboración</h3>
+        <p>Trabaja con remotos usando fetch, pull, push y configuración segura.</p>
+      </article>
+    </section>
+
+
+    <section class="command-explorer container" aria-labelledby="command_explorer_title">
+      <div class="command-explorer__header">
+        <div>
+          <span class="eyebrow">Búsqueda inteligente</span>
+          <h2 id="command_explorer_title">Encuentra comandos por nombre, categoría o intención.</h2>
+        </div>
+        <p>
+          Escribe lo que quieres hacer en Git o filtra por categoría para descubrir el comando correcto más rápido.
+        </p>
+      </div>
+      <div class="command-search" role="search">
+        <label for="command_search" class="visually-hidden">Buscar comandos de Git</label>
+        <span aria-hidden="true">🔎</span>
+        <input id="command_search" type="search" placeholder="Ej: crear rama, subir cambios, deshacer, remoto..." autocomplete="off">
+      </div>
+      <div id="category_filters" class="category-filters" aria-label="Filtrar comandos por categoría"></div>
+      <div id="command_results" class="command-results" aria-live="polite"></div>
+    </section>
+
+    <div class="cajaCentral container">
       <div class="pisador">
         <div>
           <span class="emogi">🌎</span>
-          <a href="https://git-scm.com/">https://git-scm.com/</a>
+          <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">git-scm.com</a>
         </div>
         <div>
           <span class="emogi">📌</span>
+          <span>Referencia rápida</span>
         </div>
       </div>
-      <div id="welcome" name="welcome" class="texto">
-        <div>
-          <img src="resources/img/Git-Logo-White.png" alt="logoGit" class="logoGit">
-        </div>
+      <div id="welcome" name="welcome" class="texto welcome-card">
+        <div class="welcome-card__mark">Git</div>
+        <p>Selecciona un comando para ver su explicación y copiar ejemplos prácticos.</p>
       </div>
       <section id="aiQuery" class="texto">
         <header class="titulo">Consulta Git con IA</header>
@@ -88,7 +143,7 @@
         <div id="ai_answer" class="parrafo resultado"></div>
       </section>
       <section id="git" name="git" class="texto" hidden>
-        <header class="titulo">¿Que es Git?</header>
+        <header class="titulo">¿Qué es Git?</header>
         <br>
         <p class="parrafo">
           Git es un sistema de control de versiones que te permite realizar un seguimiento de los cambios que realizas
@@ -147,7 +202,7 @@
             $git init
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_init', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_init" aria-label="Copiar comando git init">📃</button>
           </div>
         </div>
       </section>
@@ -183,7 +238,7 @@
           </div>
           <br>$cd my-project
           <div class="botonCopy">
-            <a onclick="copyCode('git_clone', this)">📃this</a>
+            <button class="copy-button" type="button" data-copy-target="git_clone" aria-label="Copiar comando git clone">📃</button>
           </div>
         </div>
       </section>
@@ -201,7 +256,7 @@
             $git branch [nueva-rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_branch_nueva', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_branch_nueva" aria-label="Copiar comando git branch nueva">📃</button>
           </div>
         </div>
         </p>
@@ -213,7 +268,7 @@
             $git branch
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_branch', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_branch" aria-label="Copiar comando git branch">📃</button>
           </div>
         </div>
         </p>
@@ -225,7 +280,7 @@
             git branch -d [antigua-rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_branch_eliminar', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_branch_eliminar" aria-label="Copiar comando git branch eliminar">📃</button>
           </div>
         </div>
         </p>
@@ -299,7 +354,7 @@
             $git tag v0.0.1 -m "Primera versión" [id de commit]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_tag', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_tag" aria-label="Copiar comando git tag">📃</button>
           </div>
         </div>
       </section>
@@ -327,7 +382,7 @@
             $git show
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_show', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_show" aria-label="Copiar comando git show">📃</button>
           </div>
         </div>
       </section>
@@ -349,7 +404,7 @@
             $git log [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_log', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_log" aria-label="Copiar comando git log">📃</button>
           </div>
         </div>
       </section>
@@ -377,7 +432,7 @@
             $ git status [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_status', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_status" aria-label="Copiar comando git status">📃</button>
           </div>
         </div>
       </section>
@@ -401,7 +456,7 @@
             $ git add [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_add', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_add" aria-label="Copiar comando git add">📃</button>
           </div>
         </div>
       </section>
@@ -425,7 +480,7 @@
             $ git commit -m "Mensaje descriptivo"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_commit', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_commit" aria-label="Copiar comando git commit">📃</button>
           </div>
         </div>
       </section>
@@ -448,7 +503,7 @@
             $ git diff [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_diff', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_diff" aria-label="Copiar comando git diff">📃</button>
           </div>
         </div>
       </section>
@@ -472,7 +527,7 @@
             $ git revert [commit]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_revert', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_revert" aria-label="Copiar comando git revert">📃</button>
           </div>
         </div>
       </section>
@@ -495,7 +550,7 @@
             $ git stash [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_stash', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_stash" aria-label="Copiar comando git stash">📃</button>
           </div>
         </div>
       </section>
@@ -514,7 +569,7 @@
                 $ git rebase [rama]
             </div>
             <div class="botonCopy">
-                <a onclick="copyCode('git_rebase', this)">📃</a>
+                <button class="copy-button" type="button" data-copy-target="git_rebase" aria-label="Copiar comando git rebase">📃</button>
             </div>
         </div>
       </section>
@@ -540,7 +595,7 @@
             $ git config --global user.email "tu-email@example.com"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_config', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_config" aria-label="Copiar comando git config">📃</button>
           </div>
         </div>
       </section>
@@ -564,7 +619,7 @@
             $ git remote add origin [https://github.com/usuario/repositorio.git]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_remote_add', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_remote_add" aria-label="Copiar comando git remote add">📃</button>
           </div>
         </div>
       </section>
@@ -587,7 +642,7 @@
             $ git remote remove origin
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_remote_remove', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_remote_remove" aria-label="Copiar comando git remote remove">📃</button>
           </div>
         </div>
       </section>
@@ -614,11 +669,11 @@
         </p>
         <br>
         <div class="container codigo text-center">
-          <div id="git_log">
+          <div id="git_fetch">
             $git fetch origin [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_fetch', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_fetch" aria-label="Copiar comando git fetch">📃</button>
           </div>
         </div>
       </section>
@@ -650,11 +705,11 @@
         <div class="container codigo text-center">
           <div id="git_pull">
             $git pull [rama]
-            </code>
-            <div class="botonCopy">
-              <a onclick="copyCode('git_pull', this)">📃</a>
-            </div>
           </div>
+          <div class="botonCopy">
+            <button class="copy-button" type="button" data-copy-target="git_pull" aria-label="Copiar comando git pull">📃</button>
+          </div>
+        </div>
       </section>
       <section id="cardgitPush" name="git push" class="texto" hidden>
         <header class="titulo">git push</header>
@@ -678,7 +733,7 @@
             $git push [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_push', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_push" aria-label="Copiar comando git push">📃</button>
           </div>
         </div>
       </section>
@@ -712,7 +767,7 @@
             $git merge [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_merge', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_merge" aria-label="Copiar comando git merge">📃</button>
           </div>
         </div>
       </section>
@@ -738,7 +793,7 @@
             $git reset --SOFT [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_reset-soft', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_reset-soft" aria-label="Copiar comando git reset-soft">📃</button>
           </div>
         </div>
         <br>
@@ -747,7 +802,7 @@
             $git reset --HARD [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_reset-hard', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_reset-hard" aria-label="Copiar comando git reset-hard">📃</button>
           </div>
         </div>
       </section>
@@ -786,7 +841,7 @@
             $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('ssh-keygen', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="ssh-keygen" aria-label="Copiar comando ssh-keygen">📃</button>
           </div>
         </div>
       </section>
@@ -805,7 +860,7 @@
             $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('ssh-keygen_linux', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="ssh-keygen_linux" aria-label="Copiar comando ssh-keygen linux">📃</button>
           </div>
         </div>
         <br>
@@ -823,12 +878,12 @@
             $ssh-add -K /Users/you/.ssh/id_rsa
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('ssh-agent', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="ssh-agent" aria-label="Copiar comando ssh-agent">📃</button>
           </div>
         </div>
       </section>
     </div>
-  </div>
+  </main>
   <div class="footer container-fluid p-3">
     <div class="text_footer">
       <h3>Notas</h3>
