@@ -356,24 +356,29 @@ function muestraCard(select) {
 }
 
 function copyCode(elementId, button) {
-  var code = document.getElementById(elementId);
-  if (code) {
-      var range = document.createRange();
-      window.getSelection().removeAllRanges();
-      range.selectNode(code);
-      window.getSelection().addRange(range);
-      navigator.clipboard.writeText(code.innerText || code.textContent)
-          .then(() => {
-              // Cambia el ícono a '✅' cuando la copia es exitosa
-              button.textContent = '✅';
-          })
-          .catch(err => {
-              console.error('Error al copiar:', err);
-          });
-      window.getSelection().removeAllRanges();
-  } else {
-      console.error('Elemento no encontrado:', elementId);
+  const code = document.getElementById(elementId);
+  const originalText = button?.textContent || "📃";
+
+  if (!code) {
+    console.error("Elemento no encontrado:", elementId);
+    return;
   }
+
+  navigator.clipboard.writeText(code.innerText || code.textContent)
+    .then(() => {
+      if (button) {
+        button.textContent = "✅";
+        button.setAttribute("aria-label", "Comando copiado");
+
+        window.setTimeout(() => {
+          button.textContent = originalText;
+          button.setAttribute("aria-label", `Copiar comando ${elementId.replaceAll("_", " ")}`);
+        }, 1600);
+      }
+    })
+    .catch((err) => {
+      console.error("Error al copiar:", err);
+    });
 }
 
 function getOpenAIApiKey() {

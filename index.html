@@ -182,7 +182,7 @@
             $git init
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_init', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_init" aria-label="Copiar comando git init">📃</button>
           </div>
         </div>
       </section>
@@ -218,7 +218,7 @@
           </div>
           <br>$cd my-project
           <div class="botonCopy">
-            <a onclick="copyCode('git_clone', this)">📃this</a>
+            <button class="copy-button" type="button" data-copy-target="git_clone" aria-label="Copiar comando git clone">📃</button>
           </div>
         </div>
       </section>
@@ -236,7 +236,7 @@
             $git branch [nueva-rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_branch_nueva', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_branch_nueva" aria-label="Copiar comando git branch nueva">📃</button>
           </div>
         </div>
         </p>
@@ -248,7 +248,7 @@
             $git branch
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_branch', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_branch" aria-label="Copiar comando git branch">📃</button>
           </div>
         </div>
         </p>
@@ -260,7 +260,7 @@
             git branch -d [antigua-rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_branch_eliminar', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_branch_eliminar" aria-label="Copiar comando git branch eliminar">📃</button>
           </div>
         </div>
         </p>
@@ -334,7 +334,7 @@
             $git tag v0.0.1 -m "Primera versión" [id de commit]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_tag', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_tag" aria-label="Copiar comando git tag">📃</button>
           </div>
         </div>
       </section>
@@ -362,7 +362,7 @@
             $git show
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_show', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_show" aria-label="Copiar comando git show">📃</button>
           </div>
         </div>
       </section>
@@ -384,7 +384,7 @@
             $git log [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_log', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_log" aria-label="Copiar comando git log">📃</button>
           </div>
         </div>
       </section>
@@ -412,7 +412,7 @@
             $ git status [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_status', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_status" aria-label="Copiar comando git status">📃</button>
           </div>
         </div>
       </section>
@@ -436,7 +436,7 @@
             $ git add [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_add', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_add" aria-label="Copiar comando git add">📃</button>
           </div>
         </div>
       </section>
@@ -460,7 +460,7 @@
             $ git commit -m "Mensaje descriptivo"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_commit', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_commit" aria-label="Copiar comando git commit">📃</button>
           </div>
         </div>
       </section>
@@ -483,7 +483,7 @@
             $ git diff [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_diff', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_diff" aria-label="Copiar comando git diff">📃</button>
           </div>
         </div>
       </section>
@@ -507,7 +507,7 @@
             $ git revert [commit]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_revert', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_revert" aria-label="Copiar comando git revert">📃</button>
           </div>
         </div>
       </section>
@@ -530,7 +530,7 @@
             $ git stash [opcion]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_stash', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_stash" aria-label="Copiar comando git stash">📃</button>
           </div>
         </div>
       </section>
@@ -549,7 +549,7 @@
                 $ git rebase [rama]
             </div>
             <div class="botonCopy">
-                <a onclick="copyCode('git_rebase', this)">📃</a>
+                <button class="copy-button" type="button" data-copy-target="git_rebase" aria-label="Copiar comando git rebase">📃</button>
             </div>
         </div>
       </section>
@@ -575,7 +575,7 @@
             $ git config --global user.email "tu-email@example.com"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_config', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_config" aria-label="Copiar comando git config">📃</button>
           </div>
         </div>
       </section>
@@ -599,7 +599,7 @@
             $ git remote add origin [https://github.com/usuario/repositorio.git]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_remote_add', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_remote_add" aria-label="Copiar comando git remote add">📃</button>
           </div>
         </div>
       </section>
@@ -622,7 +622,7 @@
             $ git remote remove origin
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_remote_remove', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_remote_remove" aria-label="Copiar comando git remote remove">📃</button>
           </div>
         </div>
       </section>
@@ -653,7 +653,7 @@
             $git fetch origin [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_fetch', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_fetch" aria-label="Copiar comando git fetch">📃</button>
           </div>
         </div>
       </section>
@@ -713,7 +713,7 @@
             $git push [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_push', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_push" aria-label="Copiar comando git push">📃</button>
           </div>
         </div>
       </section>
@@ -747,7 +747,7 @@
             $git merge [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_merge', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_merge" aria-label="Copiar comando git merge">📃</button>
           </div>
         </div>
       </section>
@@ -773,7 +773,7 @@
             $git reset --SOFT [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_reset-soft', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_reset-soft" aria-label="Copiar comando git reset-soft">📃</button>
           </div>
         </div>
         <br>
@@ -782,7 +782,7 @@
             $git reset --HARD [rama]
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('git_reset-hard', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="git_reset-hard" aria-label="Copiar comando git reset-hard">📃</button>
           </div>
         </div>
       </section>
@@ -821,7 +821,7 @@
             $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('ssh-keygen', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="ssh-keygen" aria-label="Copiar comando ssh-keygen">📃</button>
           </div>
         </div>
       </section>
@@ -840,7 +840,7 @@
             $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('ssh-keygen_linux', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="ssh-keygen_linux" aria-label="Copiar comando ssh-keygen linux">📃</button>
           </div>
         </div>
         <br>
@@ -858,7 +858,7 @@
             $ssh-add -K /Users/you/.ssh/id_rsa
           </div>
           <div class="botonCopy">
-            <a onclick="copyCode('ssh-agent', this)">📃</a>
+            <button class="copy-button" type="button" data-copy-target="ssh-agent" aria-label="Copiar comando ssh-agent">📃</button>
           </div>
         </div>
       </section>
