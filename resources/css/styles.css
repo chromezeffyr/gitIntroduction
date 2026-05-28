@@ -507,3 +507,45 @@ select option {
     width: 100%;
   }
 }
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #f1f5f9;
+    --color-surface: rgba(255, 255, 255, 0.9);
+    --color-surface-strong: rgba(248, 250, 252, 0.98);
+    --color-text: #0f172a;
+    --color-muted: #334155;
+    --color-border: rgba(100, 116, 139, 0.25);
+  }
+
+  .header,
+  .footer {
+    background: rgba(226, 232, 240, 0.92);
+  }
+
+  .command-result,
+  .learning-block,
+  .codigo,
+  .resultado {
+    background: rgba(241, 245, 249, 0.95);
+    color: #0f172a;
+  }
+
+  .command-result strong,
+  .titulo,
+  .hero-panel h2 {
+    color: #0f172a;
+  }
+}
+
+
+.codigo pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.codigo code {
+  display: block;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+}

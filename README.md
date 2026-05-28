@@ -1,52 +1,58 @@
-# Título del Proyecto ("Git Refuerzo 'Notas'")
+# GitIntroduction — Guía visual de Git
 
-Este proyecto es una página web personal que utilicé para practicar conceptos de Git y GitHub. 
+Proyecto web educativo para aprender comandos de Git con una interfaz moderna, buscador por intención y ejemplos copiables.
 
-## Descripción
+## Demo
 
-Breve descripción del contenido de la página web y su propósito (por ejemplo, practicar HTML, CSS, JavaScript o cualquier otro tema).
+- Sitio en GitHub Pages: https://chromezeffyr.github.io/gitIntroduction/
 
-## Cómo visualizar la página
+## Funcionalidades actuales
 
-Esta página web está alojada en GitHub Pages. Puedes verla en vivo en la siguiente URL:
+- Landing responsive en español con secciones de aprendizaje.
+- Explorador de comandos con:
+  - búsqueda por texto,
+  - filtros por categorías,
+  - enlaces compartibles por hash (ej: `#git-commit`).
+- Bloques didácticos por comando: qué hace, cuándo usarlo, precaución y relacionados.
+- Copia de ejemplos con feedback visual.
+- Consulta IA vía backend proxy con modo demo cuando no hay API key.
 
-[https://yourusername.github.io/chromezeffyr/](https://chromezeffyr.github.io/gitIntroduction/)
+## Ejecutar localmente
 
+### Opción recomendada (con backend)
 
-## Tecnologías utilizadas
+```bash
+npm run dev
+```
 
-Tecnologías y herramientas utilizadas en el proyecto, por ejemplo:
+Abre: `http://localhost:4173`
 
-- HTML
-- CSS
-- JavaScript
-- Git y GitHub
+### Variables de entorno
 
-## Consulta Git con IA
+Copia `.env.example` y configura:
 
-La página incluye una sección que utiliza la API de OpenAI para responder preguntas sobre Git.
-Para habilitarla debes proporcionar tu clave de API de alguna de estas formas:
+- `OPENAI_API_KEY` (opcional)
+- `OPENAI_MODEL` (opcional, por defecto `gpt-4o-mini`)
+- `PORT` (opcional, por defecto `4173`)
 
-- **Entorno Node**: define la variable de entorno `OPENAI_API_KEY` antes de ejecutar el proyecto.
-- **En el navegador**: inyecta la clave en el HTML mediante una etiqueta `<meta name="openai-api-key" content="TU_CLAVE">` o un `input` oculto con `name="openai-api-key"` (o `id="openai-api-key"`). Usa siempre HTTPS o `localhost` si cargas la clave desde el DOM para evitar que se filtre en tránsito.
+Si no defines `OPENAI_API_KEY`, la ruta `/api/git-assistant` responde en modo demo.
 
-**Recomendaciones de seguridad**
+## Checks disponibles
 
-- No publiques la clave de OpenAI en un sitio público: si necesitas exponerla en el navegador hazlo solo en HTTPS o `localhost` y evalúa usar un backend proxy que firme las solicitudes.
-- Evita guardar la clave en localStorage u otros medios persistentes en el cliente.
-- Comprueba que la variable `OPENAI_API_KEY` no quede registrada en logs o herramientas de build.
+```bash
+npm run check
+```
 
-## Cómo contribuir
+Incluye validación de HTML y verificación sintáctica de JavaScript.
 
-Si deseas contribuir al proyecto, sigue estos pasos:
+## Tecnologías
 
-1. Haz fork del repositorio
-2. Clona el repositorio en tu máquina local
-3. Crea una nueva rama con un nombre descriptivo (por ejemplo, `git checkout -b new-feature`)
-4. Realiza tus cambios y confirma los cambios
-5. Haz push de la rama a tu repositorio en GitHub (por ejemplo, `git push origin new-feature`)
-6. Crea un pull request en GitHub para que los cambios sean revisados y, si son aprobados, incorporados al repositorio principal.
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+- Bootstrap 5
+- Node.js (servidor estático + proxy IA)
 
 ## Licencia
 
-Este proyecto se encuentra bajo la licencia MIT. Consulta el archivo [LICENSE] para obtener más información.
+MIT. Ver `LICENSE.txt`.

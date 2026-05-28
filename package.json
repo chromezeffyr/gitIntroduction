@@ -1,0 +1,13 @@
+{
+  "name": "gitintroduction",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Guía visual de Git con buscador de comandos y asistente IA vía backend proxy.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "lint:html": "npx --yes htmlhint index.html",
+    "lint:js": "node --check resources/js/index.js && node --check server.js",
+    "check": "npm run lint:html && npm run lint:js"
+  }
+}
