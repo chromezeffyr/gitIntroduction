@@ -203,18 +203,6 @@ const commands = [
 
 const commandByValue = new Map(commands.map((command) => [command.value, command]));
 const commandById = new Map(commands.map((command) => [command.id, command]));
-
-function toHashSlug(value) {
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-const commandByHash = new Map(commands.map((command) => [toHashSlug(command.value), command]));
-
 const categoryNames = ["Todos", ...new Set(commands.map((command) => command.category))];
 let activeCategory = "Todos";
 
@@ -225,94 +213,10 @@ const categoryFilters = document.getElementById("category_filters");
 const commandResults = document.getElementById("command_results");
 const contentPanel = document.querySelector(".cajaCentral");
 
-
-const commandInsights = {
-  git: {
-    what: "Explica el propósito de Git como sistema distribuido para registrar versiones y colaborar.",
-    when: "Úsalo como punto de partida antes de practicar comandos específicos.",
-    caution: "Antes de comandos avanzados, asegúrate de entender commit, rama y repositorio.",
-    related: ["git init", "git clone", "git status"]
-  },
-  cardgitInit: {
-    what: "Inicializa una carpeta como repositorio Git y crea su historial local.",
-    when: "Úsalo cuando empiezas un proyecto nuevo desde cero.",
-    caution: "Ejecutarlo en la carpeta incorrecta puede crear repositorios anidados difíciles de mantener.",
-    related: ["git status", "git add", "git commit"]
-  },
-  cardgitClone: {
-    what: "Crea una copia local completa de un repositorio remoto.",
-    when: "Úsalo para empezar a trabajar sobre un proyecto existente de GitHub u otro servidor.",
-    caution: "Verifica la URL y permisos del repositorio antes de clonar.",
-    related: ["git remote add", "git fetch", "git pull"]
-  },
-  cardgitBranch: {
-    what: "Gestiona líneas de trabajo independientes para desarrollar sin afectar la rama principal.",
-    when: "Úsalo para nuevas funcionalidades, experimentos o correcciones aisladas.",
-    caution: "Elimina ramas solo cuando confirmes que sus cambios ya fueron integrados o no se necesitan.",
-    related: ["git checkout", "git merge", "git rebase"]
-  },
-  cardgitCheckout: {
-    what: "Cambia entre ramas o restaura archivos a una versión específica.",
-    when: "Úsalo para moverte a otra rama o descartar cambios de un archivo concreto.",
-    caution: "Restaurar archivos puede sobrescribir trabajo local no guardado.",
-    related: ["git branch", "git status", "git stash"]
-  },
-  cardgitReset: {
-    what: "Mueve referencias del historial y puede deshacer cambios preparados o commits.",
-    when: "Úsalo para corregir commits locales antes de compartirlos.",
-    caution: "git reset --hard borra cambios locales; úsalo solo si estás seguro.",
-    related: ["git revert", "git status", "git diff"]
-  }
-};
-
-const categoryInsights = {
-  "Fundamentos": {
-    what: "Forma parte del flujo base para crear, revisar y guardar cambios en Git.",
-    when: "Úsalo durante el ciclo diario de trabajo: revisar, preparar y confirmar cambios.",
-    caution: "Revisa siempre el estado antes de confirmar para evitar incluir archivos no deseados."
-  },
-  "Ramas e historial": {
-    what: "Ayuda a explorar historial, comparar cambios o trabajar con ramas.",
-    when: "Úsalo cuando necesitas entender evolución del proyecto o aislar trabajo.",
-    caution: "Confirma o guarda tus cambios antes de cambiar de rama o reescribir historial."
-  },
-  "Remotos": {
-    what: "Permite sincronizar tu repositorio local con servidores remotos.",
-    when: "Úsalo para colaborar, descargar avances del equipo o publicar commits.",
-    caution: "Antes de mezclar cambios remotos, revisa tu estado local para reducir conflictos."
-  },
-  "Deshacer cambios": {
-    what: "Sirve para guardar temporalmente, revertir o descartar cambios.",
-    when: "Úsalo para corregir errores o limpiar tu área de trabajo.",
-    caution: "Prefiere opciones reversibles como revert o stash antes de comandos destructivos."
-  },
-  "Configuración": {
-    what: "Personaliza identidad, preferencias y comportamiento de Git.",
-    when: "Úsalo al configurar un equipo nuevo o ajustar tu flujo de trabajo.",
-    caution: "Distingue entre configuración global y local para no afectar otros proyectos."
-  },
-  "Seguridad SSH": {
-    what: "Configura autenticación segura mediante llaves SSH.",
-    when: "Úsalo para conectarte a repositorios remotos sin escribir contraseña cada vez.",
-    caution: "Nunca compartas tu llave privada; solo registra la llave pública."
-  }
-};
-
-
 const initialOption = "git";
 muestraCard(initialOption);
 renderCategoryFilters();
 renderCommandResults();
-renderCommandInsights();
-bindCopyButtons();
-initCommandFromHash();
-
-window.addEventListener("hashchange", () => {
-  const hashCommand = getCommandFromHash();
-  if (hashCommand) {
-    selectCommand(hashCommand.id, { shouldScroll: false, updateHash: false });
-  }
-});
 
 if (selectTema) {
   selectTema.addEventListener("change", () => {
@@ -323,79 +227,6 @@ if (selectTema) {
 
 if (commandSearch) {
   commandSearch.addEventListener("input", renderCommandResults);
-}
-
-const resetButton = document.getElementById("limpiar");
-if (resetButton) {
-  resetButton.addEventListener("click", limpiarInput);
-}
-
-function getCommandFromHash() {
-  const rawHash = window.location.hash.replace(/^#/, "").trim();
-  if (!rawHash) return null;
-  return commandByHash.get(rawHash) || null;
-}
-
-function initCommandFromHash() {
-  const hashCommand = getCommandFromHash();
-  if (hashCommand) {
-    selectCommand(hashCommand.id, { shouldScroll: false, updateHash: false });
-  }
-}
-
-function getCommandInsight(command) {
-  return commandInsights[command.id] || {
-    ...categoryInsights[command.category],
-    related: getRelatedCommands(command)
-  };
-}
-
-function getRelatedCommands(command) {
-  return commands
-    .filter((candidate) => candidate.category === command.category && candidate.id !== command.id)
-    .slice(0, 3)
-    .map((candidate) => candidate.label);
-}
-
-function renderCommandInsights() {
-  commands.forEach((command) => {
-    const section = document.getElementById(command.id);
-    if (!section || section.querySelector(".learning-blocks")) return;
-
-    const insight = getCommandInsight(command);
-    const related = insight.related?.length ? insight.related : getRelatedCommands(command);
-    const title = section.querySelector(".titulo");
-    const referenceNode = title?.nextElementSibling?.tagName === "P" ? title.nextElementSibling : title;
-    const blocks = document.createElement("div");
-
-    blocks.className = "learning-blocks";
-    blocks.innerHTML = `
-      <article class="learning-block">
-        <span>Qué hace</span>
-        <p>${insight.what}</p>
-      </article>
-      <article class="learning-block">
-        <span>Cuándo usarlo</span>
-        <p>${insight.when}</p>
-      </article>
-      <article class="learning-block learning-block--warning">
-        <span>Precaución</span>
-        <p>${insight.caution}</p>
-      </article>
-      <article class="learning-block">
-        <span>Relacionados</span>
-        <p>${related.join(" · ")}</p>
-      </article>
-    `;
-
-    referenceNode?.insertAdjacentElement("afterend", blocks);
-  });
-}
-
-function bindCopyButtons() {
-  document.querySelectorAll(".copy-button[data-copy-target]").forEach((button) => {
-    button.addEventListener("click", () => copyCode(button.dataset.copyTarget, button));
-  });
 }
 
 function normalizeText(value) {
@@ -471,6 +302,91 @@ function renderCommandResults() {
       selectCommand(button.dataset.commandId, { shouldScroll: true });
     });
   });
+}
+
+function selectCommand(commandId, options = {}) {
+  const command = commandById.get(commandId) || commandById.get("git");
+
+  muestraCard(command.id);
+
+  if (selectTema) {
+    selectTema.value = command.value;
+  }
+
+  if (options.shouldScroll && contentPanel) {
+    contentPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  updateActiveResult(command.id);
+}
+
+function updateActiveResult(commandId) {
+  if (!commandResults) return;
+
+  commandResults.querySelectorAll(".command-result").forEach((button) => {
+    const isActive = button.dataset.commandId === commandId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-current", isActive ? "true" : "false");
+  });
+}
+
+function limpiarInput() {
+  if (selectTema) {
+    selectTema.value = "git";
+  }
+
+  if (commandSearch) {
+    commandSearch.value = "";
+  }
+
+  activeCategory = "Todos";
+  renderCategoryFilters();
+  renderCommandResults();
+  selectCommand("git", { shouldScroll: true });
+}
+
+function getFilteredCommands() {
+  const query = normalizeText(commandSearch?.value.trim() || "");
+
+  return commands.filter((command) => {
+    const matchesCategory = activeCategory === "Todos" || command.category === activeCategory;
+    const searchableText = normalizeText([
+      command.label,
+      command.value,
+      command.category,
+      command.description,
+      command.keywords
+    ].join(" "));
+    const matchesQuery = !query || searchableText.includes(query);
+
+    return matchesCategory && matchesQuery;
+  });
+}
+
+function copyCode(elementId, button) {
+  const code = document.getElementById(elementId);
+  const originalText = button?.textContent || "📃";
+
+  if (!code) {
+    console.error("Elemento no encontrado:", elementId);
+    return;
+  }
+
+  navigator.clipboard.writeText(code.innerText || code.textContent)
+    .then(() => {
+      if (button) {
+        button.textContent = "✅";
+        button.setAttribute("aria-label", "Comando copiado");
+
+        window.setTimeout(() => {
+          button.textContent = originalText;
+          button.setAttribute("aria-label", `Copiar comando ${elementId.replaceAll("_", " ")}`);
+        }, 1600);
+      }
+    })
+    .catch((err) => {
+      console.error("Error al copiar:", err);
+    });
 }
 
 function selectCommand(commandId, options = {}) {
